@@ -24,7 +24,7 @@ class Xvideos:
         self.PATTERN_720 = re.compile(r'hls-720p\S+m3u8')
         self.PATTERN_1080 = re.compile(r'hls-1080p\S+m3u8')
 
-    def get_video(self):
+    def GetVideo(self):
         res = requests.get(self.url, proxies=self.proxies, headers=self.headers)
         soup = BeautifulSoup(res.text, 'html.parser')
         element = soup.select('#video-player-bg > script:nth-child(6)')

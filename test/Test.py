@@ -16,7 +16,7 @@ import json
 #     soup = BeautifulSoup(res.text, 'html.parser')
 #     element = soup.select('#video-player-bg > script:nth-child(6)')
 #     tagname = soup.find_all(attrs={"class": "page-title"})[0].text
-
+from selenium import webdriver
 
 
 

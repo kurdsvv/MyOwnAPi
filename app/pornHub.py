@@ -80,7 +80,7 @@ class PornHub(object):
             except Exception as e:
                 print(e)
 
-    def get_video(self):
+    def GetVideo(self):
         """
         Way to parse encrypt signal video url
         use proxies or you can directly surfer outer-net
@@ -120,7 +120,7 @@ class PornHub(object):
 
 if __name__ == '__main__':
     pornhub = PornHub("https://cn.pornhub.com/view_video.php?viewkey=ph639c60f524f29")
-    urls = json.loads(pornhub.get_video())
+    urls = json.loads(pornhub.GetVideo())
     if len((urls["quality"][3])) != 0:
         print(urls["quality"][3]["videoUrl"])
     elif ((len((urls["quality"][3])) == 0) & (len((urls["quality"][2])) != 0)):

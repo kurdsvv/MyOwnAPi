@@ -1,1 +1,1 @@
-# MyOwnAPi
+uvicorn main:app --reload

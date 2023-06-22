@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import uvicorn
 from fastapi.responses import PlainTextResponse
 from app.xvideos import Xvideos
 from app.pornHub import PornHub
@@ -40,3 +41,7 @@ async def read_user(file_path: str):
     file_path = "https://vjav.com/videos/" + file_path
     m3u8=Vjav(file_path).GetVideo()
     return RedirectResponse(m3u8)
+
+if __name__ == '__main__':
+    uvicorn.run(app='main:app', host="127.0.0.1", port=8000, reload=True,)
+

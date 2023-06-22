@@ -6,7 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-
+import time
 
 class Spankbang:
     def __init__(self, url):
@@ -29,13 +29,9 @@ class Spankbang:
         chrome_options.add_experimental_option("prefs", prefs)
         driver = webdriver.Chrome(options=chrome_options)
         driver.minimize_window()
-        with open('stealth.min.js') as f:
-            driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
-                "source": f.read()
-            })
-
 
         driver.get(self.url)
+
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located((By.ID, 'container')))
         urls = soup.find(id="container").find_all('script', {'type': "text/javascript"})[0].get_text()

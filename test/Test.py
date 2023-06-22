@@ -17,7 +17,7 @@ import json
 #     element = soup.select('#video-player-bg > script:nth-child(6)')
 #     tagname = soup.find_all(attrs={"class": "page-title"})[0].text
 from selenium import webdriver
-
+import time
 chrome_options = webdriver.ChromeOptions()
 prefs = {"profile.managed_default_content_settings.images": 2, 'permissions.default.stylesheet': 2}
 chrome_options.add_argument("disable-infobars")
@@ -33,11 +33,14 @@ driver = webdriver.Chrome(options=chrome_options)
 
 # 利用stealth.min.js隐藏浏览器指纹特征
 # stealth.min.js下载地址：https://github.com/berstend/puppeteer-extra/tree/stealth-js
-with open('stealth.min.js') as f:
-    driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
-        "source": f.read()
-    })
+# with open('stealth.min.js') as f:
+#     driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+#         "source": f.read()
+#     })
 
-driver.get("https://spankbang.com/35wte/video/korean+beautiful+hd+spurting")
-print(driver.page_source)
+driver.get("https://vjav.com/videos/192984/korean-beautiful-hd-spurting-part2")
+time.sleep(3)
+soup = BeautifulSoup(driver.page_source, 'html.parser')
+element = soup.find("video", {"class": "jw-video jw-reset"})["src"]
+print(element)
 

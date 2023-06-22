@@ -24,9 +24,15 @@ class Spankbang:
         chrome_options.add_argument('--proxy-server=http://127.0.0.1:7677')
         chrome_options.add_argument("disable-javascript")
         chrome_options.add_argument("–incognito")
+        chrome_options.add_argument('--ignore-certificate-errors')  # 主要是该条
+        chrome_options.add_argument('--ignore-ssl-errors')
         chrome_options.add_experimental_option("prefs", prefs)
         driver = webdriver.Chrome(options=chrome_options)
         driver.minimize_window()
+        with open('stealth.min.js') as f:
+            driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+                "source": f.read()
+            })
 
 
         driver.get(self.url)

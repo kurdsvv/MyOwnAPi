@@ -21,9 +21,9 @@ import time
 chrome_options = webdriver.ChromeOptions()
 prefs = {"profile.managed_default_content_settings.images": 2, 'permissions.default.stylesheet': 2}
 chrome_options.add_argument("disable-infobars")
-chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+#chrome_options.add_argument('--disable-blink-features=AutomationControlled')
 chrome_options.add_argument('--proxy-server=http://127.0.0.1:7677')
-chrome_options.add_argument("disable-javascript")
+#chrome_options.add_argument("disable-javascript")
 chrome_options.add_argument("–incognito")
 chrome_options.add_argument('--ignore-certificate-errors')  # 主要是该条
 chrome_options.add_argument('--ignore-ssl-errors')
@@ -38,9 +38,9 @@ driver = webdriver.Chrome(options=chrome_options)
 #         "source": f.read()
 #     })
 
-driver.get("https://vjav.com/videos/192984/korean-beautiful-hd-spurting-part2")
-time.sleep(3)
-soup = BeautifulSoup(driver.page_source, 'html.parser')
-element = soup.find("video", {"class": "jw-video jw-reset"})["src"]
-print(element)
+driver.get("https://guccihide.store/v/sh0ixdkuxrro")
+time.sleep(2)
+
+#soup = BeautifulSoup(driver.page_source, 'html.parser')
+
 

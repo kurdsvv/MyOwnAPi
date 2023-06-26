@@ -55,16 +55,11 @@ import time
 #     "Sec-Fetch-Dest": "document",
 #     "DNT": "1",
 #     "Upgrade-Insecure-Requests": "1",
-#     "Referer": "https://koreanbj.club/chinese-amateur-cna20234153/",
-#     "Host": "koreanbj.club",
 # }
 #
 #
 # proxies = {'http': '127.0.0.1:7677', 'https': '127.0.0.1:7677'}
 # cookies='''
-# wordpress_logged_in_cc37954828159578f17c0fd06cf005c2=cejixi7862%7C1687955649%7Cglyr6IygbJP7UoUD12dJiMKioeoBxBTudZvOzdxixNj%7C79f0252dc58beb783ad478f142267673ddd6c3d8966f7f0f8b2790bf2278a7cb; wfwaf-authcookie-e64a2b79f43d21efdd0469cb89878f4d=1254%7Csubscriber%7Cread%7Cf46976436a46a9bb2b6a0c0ae46a1c6a53fa08733997cc7b4520d20e48c83bf1
-#
-#
 # '''
 # cookiedict = {}
 # for cookies in cookies.strip().split(";"):
@@ -73,11 +68,20 @@ import time
 #         cookiedict[cookiestr[0].strip()] = cookiestr[1]
 # print(cookiedict)
 #
-# url = "https://koreanbj.club/chinese-amateur-cna20234153/"
-#
-# res = requests.get(url, proxies=proxies, headers=headers)
+# url = "https://www.youjizz.com/videos/korean-beautiful-hd-spurting-part2-39734271.html"
+# res = requests.get(url, headers=headers,proxies=proxies)
 # print(res.text)
-
-
-
-print(element)
+soup = BeautifulSoup(open("index.html",encoding="utf-8"))
+element=soup.find("div",{"id":"content"})
+PATTERN_data=re.compile(r'dataEncodings = (.*);')
+urllist=(PATTERN_data.findall(str(element))[0]).replace("\/","/")
+PATTERN_480p=re.compile(r'quality\"\:\"480\"\,\"filename\"\:\"(.*?)\"')
+PATTERN_720p=re.compile(r'quality\"\:\"720\"\,\"filename\"\:\"(.*?)\"')
+PATTERN_1080p=re.compile(r'quality\"\:\"1080\"\,\"filename\"\:\"(.*?)\"')
+result720=PATTERN_720p.findall(urllist)
+if len(PATTERN_1080p.findall(urllist))!=0:
+    print("https"+PATTERN_1080p[0])
+elif ((len(PATTERN_1080p.findall(urllist))==0) & (len(PATTERN_720p.findall(urllist))!=0)):
+    print("https"+PATTERN_720p.findall(urllist)[0])
+else:
+    print("https"+PATTERN_480p[0])

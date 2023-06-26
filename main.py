@@ -7,7 +7,9 @@ import json
 from app.spankbang import Spankbang
 from app.vjav import Vjav
 from fastapi.responses import RedirectResponse
+from app.xhamster import xhamster
 app = FastAPI()
+
 
 
 
@@ -42,6 +44,13 @@ async def read_user(file_path: str):
     m3u8=Vjav(file_path).GetVideo()
     return RedirectResponse(m3u8)
 
+
+@app.get("/xhamster/{file_path:path}",)
+async def read_user(file_path: str):
+    file_path = "https://xhamster.com/" + file_path
+    m3u8=xhamster(file_path).GetVideo()
+    return RedirectResponse(m3u8)
+
 if __name__ == '__main__':
-    uvicorn.run(app='main:app', host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run(app='main:app', host="127.0.0.1", port=80, reload=True)
 

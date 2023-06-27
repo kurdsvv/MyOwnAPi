@@ -27,7 +27,7 @@ class youjizz:
             "Referer":"https://www.google.com.tw/"
         }
 
-        self.proxies = {'http': '127.0.0.1:7677', 'https': '127.0.0.1:7677'}
+        self.proxies = {'http': 'host.docker.internal:7677', 'https': 'host.docker.internal:7677'}
         self.cookies = '''
         '''
         self.PATTERN_data = re.compile(r'dataEncodings = (.*);')

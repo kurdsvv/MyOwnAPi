@@ -86,7 +86,7 @@ class PornHub(object):
         use proxies or you can directly surfer outer-net
         :return: video-object
         """
-        self.session.proxies = {'http': '127.0.0.1:7677', 'https': '127.0.0.1:7677'}
+        self.session.proxies = {'http': 'host.docker.internal:7677', 'https': 'host.docker.internal:7677'}
         res = self.session.get(url=self.url, headers=self.headers, timeout=40, )
         if res.status_code == 200:
             try:

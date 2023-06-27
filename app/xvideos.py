@@ -4,7 +4,7 @@ import re
 
 
 # url_favorite = "https://www.xvideos.com/favorite/98505705/korean"
-class Xvideos:
+class Xvideos():
     def __init__(self, url):
         self.url = url
         self.session = requests.Session()
@@ -25,8 +25,8 @@ class Xvideos:
             "Referer": "https://www.xvideos.com/"
 
             }
-
-        self.proxies = {'http': '127.0.0.1:7677', 'https': '127.0.0.1:7677'}
+        self.proxies = {'http': 'host.docker.internal:7677', 'https': 'host.docker.internal:7677'}
+        self.proxies = {'http': 'host.docker.internal:7677', 'https': 'host.docker.internal:7677'}
         self.PATTERN_hls = re.compile(r'html5player.setVideoHLS\(\S+\)')
         self.PATTERN_360 = re.compile(r'hls-360p\S+m3u8')
         self.PATTERN_480 = re.compile(r'hls-480p\S+m3u8')

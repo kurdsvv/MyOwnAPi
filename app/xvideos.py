@@ -25,8 +25,7 @@ class Xvideos():
             "Referer": "https://www.xvideos.com/"
 
             }
-        self.proxies = {'http': 'host.docker.internal:7677', 'https': 'host.docker.internal:7677'}
-        self.proxies = {'http': 'host.docker.internal:7677', 'https': 'host.docker.internal:7677'}
+        self.proxies = {'http': 'http://host.docker.internal:7677', 'https': 'http://host.docker.internal:7677'}
         self.PATTERN_hls = re.compile(r'html5player.setVideoHLS\(\S+\)')
         self.PATTERN_360 = re.compile(r'hls-360p\S+m3u8')
         self.PATTERN_480 = re.compile(r'hls-480p\S+m3u8')

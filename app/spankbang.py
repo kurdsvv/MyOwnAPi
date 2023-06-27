@@ -36,8 +36,7 @@ class Spankbang:
             "Sec-Fetch-User": "?1",
             "Sec-Fetch-Dest": "document"
         }
-        self.proxies = {'http': 'host.docker.internal:7677', 'https': 'host.docker.internal:7677'}
-
+        self.proxies = {'http': 'http://host.docker.internal:7677', 'https': 'http://host.docker.internal:7677'}
         self.cookiestr = '''
             coe=ww; age_pass=1; age_pass=1; ana_vid=ec4c59a2b79ef7afc4bd56b3f93154eaaaed6b21f5eadb5eebf2a4eea7f9f38b; cor=Unknown; backend_version=main; __cfruid=568f88b8b0813092ea989168a6b677d01c36b4c5-1687861941; preroll_skip=1; __cf_bm=8gWn2k1LGOAI4HBoAAvvpdoAq02RtVljJEK7SnRcma0-1687861943-0-AWrQDlZJHZa6SptzHilooSnyWEbOVAEpW8pErFm0P8/WEbkFWNWwxLEir5mqqYbOgiug+kk+qX+Dkqv+CU6XF8h6I32Rp+xmS775re+Ki/mh; ana_sid=48b3a107453e97d45661b12307cc7abb0ae508dc77927dc6ba17f0217eb6c21f; auth=IjI1MTA0MjAzOjo6c3BhbmtiYW5nX3N3cWUi.TSHAR1Iqbs7hlupqoxKhzU2nsz8; cfc_ok=00|2|ww|www|master|25104203; cf_chl_2=4480e963c861d94; cf_clearance=RA2lIFufW.AINI.ShtCbdQPWWoNvXdXTIt9_j5ICrXA-1687862054-0-250; sb_session=eyJfcGVybWFuZW50Ijp0cnVlLCJjc3JmX3Rva2VuIjoiNjgyYmFmY2ZhMGVhZDU5MDliYWJiMGNiMGQyNGU1MTZmYmU3M2M1ZCJ9.ZJq7Ng.3K8FUg7ybHdq025kTohGKKPat8A        
         '''

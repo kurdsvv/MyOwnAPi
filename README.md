@@ -5,3 +5,5 @@ pip3 install --upgrade pip
 
 
 pip3 install lxml requests fastapi bs4  uvicorn js2py tqdm pyquery  selenium
+
+docker run --hostname=7e15a2c5f38d --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --privileged -p 35455:35455 -p 8000:8000 --restart=unless-stopped --runtime=runc -d kurdsvv/python:v2
